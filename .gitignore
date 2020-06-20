@@ -251,3 +251,4 @@ tags
 bookdatabase.db
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,flask,git
+.tool-versions
