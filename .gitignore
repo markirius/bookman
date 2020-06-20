@@ -249,6 +249,9 @@ tags
 
 .flake8
 bookdatabase.db
+.vim/
+.vim/*
+.vim
 
 # End of https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,flask,git
 .tool-versions
