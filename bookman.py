@@ -1,10 +1,6 @@
 import os
 
-from flask import Flask
-from flask import render_template
-from flask import request
-from flask import redirect
-
+from flask import Flask, redirect, render_template, request
 from flask_sqlalchemy import SQLAlchemy
 
 project_dir = os.path.dirname(os.path.abspath(__file__))
@@ -32,7 +28,7 @@ def home():
             book = Book(title=request.form.get("title"))
             db.session.add(book)
             db.session.commit()
-            print(request.form)
+            #print(request.form)
         except Exception as e:
             print(f"Failed to add this book: {book.title} - {e}")
     books = Book.query.all()
