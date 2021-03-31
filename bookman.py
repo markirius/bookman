@@ -21,14 +21,14 @@ class Book(db.Model):
 
 
 @app.route("/", methods=["GET", "POST"])
-def home():
+def home(): # TODO: improove code to avoid erros on empty and repeated inputs
     books = None
     if request.form:
         try:
-            book = Book(title=request.form.get("title"))
+            input_text = request.form.get("title").title()
+            book = Book(title=input_text)
             db.session.add(book)
             db.session.commit()
-            #print(request.form)
         except Exception as e:
             print(f"Failed to add this book: {book.title} - {e}")
     books = Book.query.all()
@@ -36,7 +36,7 @@ def home():
 
 
 @app.route("/update", methods=["POST"])
-def update():
+def update(): # TODO: Make a good modal for update title
     try:
         new_title = request.form.get("newtitle")
         oldtitle = request.form.get("oldtitle")
